@@ -1,5 +1,6 @@
 <?php
-function getDatabaseConnection() {
+function getDatabaseConnection()
+{
     $host = 'localhost';
     $dbname = 'amortal';
     $username = 'root';
@@ -13,4 +14,3 @@ function getDatabaseConnection() {
 
     return $conexion;
 }
-?>

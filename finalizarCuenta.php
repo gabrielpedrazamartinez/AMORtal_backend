@@ -18,6 +18,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 require 'conexión.php';
 
+$conexion     = getDatabaseConnection();
+
 // Captura de datos
 $email     = trim($_POST['email'] ?? '');
 $nombre    = trim($_POST['nombre'] ?? '');
@@ -33,7 +35,6 @@ if (!$email || !$nombre || !$orient || !$fecha || !$genero) {
     exit;
 }
 
-$conexion     = getDatabaseConnection();
 $emailEsc = mysqli_real_escape_string($conexion, $email);
 
 // Actualizar usuario
@@ -93,5 +94,9 @@ if ($fotos && isset($fotos['tmp_name'])) {
 }
 
 mysqli_close($conexion);
-echo json_encode(['success' => true, 'message' => 'Registro finalizado correctamente']);
-?>
+
+echo json_encode([
+    'success' => true,
+    'message' => 'Registro finalizado correctamente',
+    'userId' => $userId
+]);

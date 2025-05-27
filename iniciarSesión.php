@@ -1,5 +1,5 @@
 <?php
-// Configuración de CORS y cabeceras
+// CORS y tipo de contenido
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type');
@@ -60,4 +60,3 @@ echo json_encode([
 ]);
 
 mysqli_close($conexion);
-?>
